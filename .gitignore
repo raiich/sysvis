@@ -99,3 +99,14 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# IntelliJ
+.idea/
+*.iml
+
+# pytest
+.pytest_cache/
+
+# antlr
+*.interp
+*.tokens
