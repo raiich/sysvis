@@ -1,0 +1,31 @@
+config='mode=diff';
+
+visibility=hidden;
+
+group array {
+  node[margin=0, padding=10, width=60, height=60];
+  c1;
+  c2;
+  c3;
+  c4;
+  c5;
+  c6[label='...', stroke='none'];
+  c7;
+  c8;
+};
+---
+c1[t='a1234'];
+c2[t='b1235'];
+c3[t='c1236'];
+c4[t='d1237'];
+---
+c5;
+c6;
+c7;
+c8;
+---
+c5[t='e1238'];
+---
+c7[t='f1239'];
+---
+c8[t='g1240'];
