@@ -17,9 +17,6 @@ class Compound(Shape, ABC):
         ret += '</g>'
         return ret
 
-    def expand_to(self, width: float, height: float) -> 'Compound':
-        raise NotImplementedError
-
     def find(self, sid: str) -> List[Shape]:
         ret = []
         for c in self.child_nodes:

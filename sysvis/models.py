@@ -1,6 +1,6 @@
 import copy
 from dataclasses import dataclass
-from typing import List, Dict, NewType
+from typing import List, Dict, NewType, Union
 
 from sysvis.field import Field
 from sysvis.shapes import (
@@ -14,11 +14,11 @@ class AttributeMap(object):
     def __init__(self, attr_map: Dict[str, dict]):
         self.map = attr_map
 
-    def shape_attrs(self, model: 'ModelBase') -> ShapeAttrs:
+    def shape_attrs(self, model: object) -> ShapeAttrs:
         key = type(model).__name__.lower()
         return ShapeAttrs(self.map.get(key, {}))
 
-    def model_attrs(self, model: 'ModelBase') -> ModelAttrs:
+    def model_attrs(self, model: object) -> ModelAttrs:
         key = type(model).__name__.lower()
         return ModelAttrs(self.map.get(key, {}))
 
@@ -29,16 +29,18 @@ class AttributeMap(object):
         })
 
 
-class ModelBase(object):
+class UpdateModel(object):
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         raise NotImplementedError
 
+
+class ShapeModel(object):
     def shape(self, attrs: AttributeMap) -> Shape:
         raise NotImplementedError
 
 
-class Group(ModelBase):
-    def __init__(self, gid: str, setups: List[ModelBase], attrs: AttributeMap, label: str=None,
+class Group(ShapeModel):
+    def __init__(self, gid: str, setups: List[ShapeModel], attrs: AttributeMap, label: str=None,
                  margin: str=None, padding: str=None, **kwargs):
         self._id = gid
         self.setups = setups
@@ -64,12 +66,9 @@ class Group(ModelBase):
             .update(text=self.text, margin=m, padding=p, **self.shape_attrs)
         )
 
-    def update(self, base: Field, attrs: AttributeMap) -> Field:
-        raise NotImplementedError
 
-
-class Zone(ModelBase):
-    def __init__(self, zid: str, setups: List[ModelBase], attrs: AttributeMap, label: str=None,
+class Zone(ShapeModel):
+    def __init__(self, zid: str, setups: List[ShapeModel], attrs: AttributeMap, label: str=None,
                  margin: str=None, padding: str=None, **kwargs):
         self._id = zid
         self.setups = setups
@@ -95,11 +94,8 @@ class Zone(ModelBase):
             .update(text=self.text, margin=m, padding=p, **self.shape_attrs)
         )
 
-    def update(self, base: Field, attrs: AttributeMap) -> Field:
-        raise NotImplementedError
 
-
-class Node(ModelBase):
+class Node(ShapeModel, UpdateModel):
     def __init__(self, node_id: str, label: str=None, t: str=None, shape: str=None, width: str=None, height: str=None,
                  margin: str=None, padding: str=None, **kwargs):
         self._id = node_id
@@ -162,7 +158,7 @@ def _edge_id(tail_id, head_id):
     return 'edge_' + tail_id + '_to_' + head_id
 
 
-class Edge(ModelBase):
+class Edge(UpdateModel):
     def __init__(self, tail_id, op, head_id, t=None, dx=None, dy=None, **kwargs):
         self.tail_id = tail_id
         self.head_id = head_id
@@ -190,11 +186,8 @@ class Edge(ModelBase):
         base.add(arrow)
         return base
 
-    def shape(self, attrs: AttributeMap) -> Shape:
-        raise NotImplementedError
 
-
-class DeleteMob(ModelBase):
+class DeleteMob(UpdateModel):
     def __init__(self, sid: str):
         self._id = sid
 
@@ -202,23 +195,17 @@ class DeleteMob(ModelBase):
     def id(self) -> str:
         return self._id
 
-    def shape(self, attrs: AttributeMap) -> Shape:
-        raise NotImplementedError  # FIXME
-
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         return base.delete(self._id)
 
 
-class DeleteEdge(ModelBase):
+class DeleteEdge(UpdateModel):
     def __init__(self, tail_id, head_id):
         self._id = _edge_id(tail_id, head_id)
 
     @property
     def id(self) -> str:
         return self._id
-
-    def shape(self, attrs: AttributeMap) -> Shape:
-        raise NotImplementedError
 
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         return base.delete(self._id)
@@ -237,7 +224,7 @@ class Attribute(object):
 
 
 class StatementList(object):
-    def __init__(self, setups: List[ModelBase], attrs: AttributeMap, assignments: List[Assignment]):
+    def __init__(self, setups: List[ShapeModel], attrs: AttributeMap, assignments: List[Assignment]):
         self.setups = setups
         self.attributes = attrs
         self.assignments = {a.key: a.value for a in assignments}
@@ -265,7 +252,7 @@ class StatementList(object):
 
 
 class Moment(object):
-    def __init__(self, setups: List[ModelBase], attrs: AttributeMap, config='',
+    def __init__(self, setups: List[Union[ShapeModel, UpdateModel]], attrs: AttributeMap, config='',
                  padding: str=None, **kwargs):
         def assign(eq: str):
             k, v = eq.split('=')
