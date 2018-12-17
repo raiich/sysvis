@@ -10,6 +10,7 @@ from sysvis.shapes import (
 ModelAttrs = NewType('ModelAttrs', dict)
 
 
+# FIXME
 class AttributeMap(object):
     def __init__(self, attr_map: Dict[str, dict]):
         self.map = attr_map
@@ -29,11 +30,13 @@ class AttributeMap(object):
         })
 
 
+# FIXME
 class UpdateModel(object):
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         raise NotImplementedError
 
 
+# FIXME
 class ShapeModel(object):
     def shape(self, attrs: AttributeMap) -> Shape:
         raise NotImplementedError
@@ -137,18 +140,8 @@ class Node(ShapeModel, UpdateModel):
                 .update(text=text, margin=m, padding=p, **self.shape_attrs)
         )
 
-    @staticmethod
-    def _basic(shape: Shape) -> Shape:
-        if isinstance(shape, Shape):
-            return shape
-        else:
-            raise ValueError('type mismatch: {0}'.format(type(shape)))
-
-    def _find(self, base: Field) -> Shape:
-        return self._basic(base.find(self._id))
-
     def update(self, base: Field, attrs: AttributeMap) -> Field:
-        shape = self._find(base)
+        shape = base.find(self._id)
         shape.visible()
         shape.update(self.text, **attrs.shape_attrs(self))
         return base
@@ -265,15 +258,21 @@ class Moment(object):
         self.shape_attrs = ShapeAttrs(kwargs)
         self.padding = Gap.parse(padding) if padding else None
 
-    def shape(self) -> ZoneShape:
-        children = [m.shape(self.attributes) for m in self.setups]
+    def field(self) -> Field:
+        # FIXME
+        children = [m.shape(self.attributes) for m in self.setups if isinstance(m, ShapeModel)]
         # FIXME
         max_width = max(map(lambda cc: cc.width, children))
         for c in children:
-            # FIXME
             if self.centering and (isinstance(c, ZoneShape) or isinstance(c, GroupShape)):
+                # FIXME
                 c.expand_to(max_width, c.height)
-        return ZoneShape(0, 0, children, padding=self.padding).update(**self.shape_attrs).fit()
+        field = Field.of(ZoneShape(0, 0, children, padding=self.padding).update(**self.shape_attrs).fit())
+        for edge in self.setups:
+            if isinstance(edge, Edge):
+                # FIXME
+                field = edge.update(field, self.attributes)
+        return field
 
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         for m in self.setups:
@@ -294,14 +293,15 @@ class Story(object):
         self.updates = moments[1:]
 
     def play(self, outfile):
-        field = Field.of(self.init.shape())
-        n = 1
+        field = self.init.field()
+        n = 0
+        self._write(field.width, field.height, field.svg(), outfile + '.{:04}.svg'.format(n))
         for update in self.updates:
+            n += 1
             updated = update.update(copy.deepcopy(field), self.init.attributes)
             self._write(updated.width, updated.height, updated.svg(), outfile + '.{:04}.svg'.format(n))
             if self.diff_mode:
                 field = updated
-            n += 1
 
     @staticmethod
     def _write(width, height, svg, outfile):

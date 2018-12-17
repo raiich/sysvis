@@ -11,12 +11,10 @@ group service1 {
     proxy2;
     backend2
   };
-}
+};
 
----
 me -> client1;
 client1 -> proxy1;
 client1 -> proxy2;
 proxy1 -> backend1;
 proxy2 -> backend2;
-
