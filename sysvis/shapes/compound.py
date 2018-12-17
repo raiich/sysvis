@@ -17,6 +17,34 @@ class Compound(Shape, ABC):
         ret += '</g>'
         return ret
 
+    def expand_to(self, width: float, height: float) -> 'Compound':
+        raise NotImplementedError
+
+    def find(self, sid: str) -> List[Shape]:
+        ret = []
+        for c in self.child_nodes:
+            if c.id == sid:
+                ret.append(c)
+            if isinstance(c, Compound):
+                ret.extend(c.find(sid))
+        return ret
+
+    def add(self, child: Shape) -> 'Compound':
+        self.child_nodes.append(child)
+        return self
+
+    def delete(self, sid: str) -> 'Compound':
+        target = []
+        for c in self.child_nodes:
+            if c.id == sid:
+                target.append(c)
+        for t in target:
+            self.child_nodes.remove(t)
+        for c in self.child_nodes:
+            if isinstance(c, Compound):
+                c.delete(sid)
+        return self
+
 
 class Zone(Compound):
     def __init__(self, x: float, y: float, cell_or_groups: List[Shape], **kwargs):
@@ -33,7 +61,7 @@ class Zone(Compound):
     def move(self, dx, dy) -> 'Zone':
         return _move(self, dx, dy)
 
-    def expand_to(self, width: float, height: float) -> Shape:
+    def expand_to(self, width: float, height: float) -> 'Zone':
         dw = width - self.width
         dh = height - self.height
         pad_x, pad_y = self.gap.left, self.gap.top
@@ -45,7 +73,7 @@ class Zone(Compound):
         pad_x, pad_y = self.gap.left, self.gap.top
         x += pad_x
         w = 0
-        child_nodes = []
+        child_nodes: List[Shape] = []
         for c in self.cell_or_groups:
             y += pad_y + c.margin.top
             moved = c.move(x, y)
@@ -89,7 +117,7 @@ class Group(Compound):
         pad_x, pad_y = self.gap.left, self.gap.top
         y += pad_y
         h = 0
-        child_nodes = []
+        child_nodes: List[Shape] = []
         for c in self.cell_or_zones:
             x += pad_x + c.margin.left
             moved = c.move(x, y)
