@@ -14,7 +14,7 @@ stmt: node_stmt
     ;
 
 attr_stmt : (GROUP | NODE | EDGE | ZONE) attr_list ;
-attr_list : '[' assignment (',' assignment)* ']' ;
+attr_list : '[' assignment ( ( ',' | ';' )?  assignment)* ']' ;
 assignment : ID '=' ID ;
 
 edge_stmt : ID '->' ID attr_list? ;
