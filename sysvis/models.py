@@ -24,10 +24,17 @@ class AttributeMap(object):
         return ModelAttrs(self.map.get(key, {}))
 
     def update(self, others: 'AttributeMap') -> 'AttributeMap':
-        return AttributeMap({
-            **self.map,
-            **others.map
-        })
+        dic = {**self.map}
+        for k, v in others.map.items():
+            base = dic.get(k)
+            if base is not None:
+                dic[k] = {
+                    **base,
+                    **v
+                }
+            else:
+                dic[k] = v
+        return AttributeMap(dic)
 
 
 # FIXME
@@ -58,14 +65,14 @@ class Group(ShapeModel):
         return self._id
 
     def shape(self, attrs: AttributeMap) -> GroupShape:
-        a_map = self.attributes.update(attrs)
+        a_map = attrs.update(self.attributes)
         children = [m.shape(a_map) for m in self.setups]
-        a = attrs.shape_attrs(self)
+        a = a_map.shape_attrs(self)
         m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(100.0, 20.0)
         p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
         return (
             GroupShape(0, 0, children, sid=self._id)
-            .update(**attrs.shape_attrs(self))
+            .update(**a_map.shape_attrs(self))
             .update(text=self.text, margin=m, padding=p, **self.shape_attrs)
         )
 
@@ -86,14 +93,14 @@ class Zone(ShapeModel):
         return self._id
 
     def shape(self, attrs: AttributeMap) -> ZoneShape:
-        a_map = self.attributes.update(attrs)
+        a_map = attrs.update(self.attributes)
         children = [m.shape(a_map) for m in self.setups]
-        a = attrs.shape_attrs(self)
+        a = a_map.shape_attrs(self)
         m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(20.0, 150.0)
         p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
         return (
             ZoneShape(0, 0, children, sid=self._id)
-            .update(**attrs.shape_attrs(self))
+            .update(**a_map.shape_attrs(self))
             .update(text=self.text, margin=m, padding=p, **self.shape_attrs)
         )
 
@@ -132,7 +139,12 @@ class Node(ShapeModel, UpdateModel):
 
         m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(20.0, 20.0)
         p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
-        text = Text(self.text.label or self._id, self.text.content)
+
+        label = self.text.label or attrs.model_attrs(self).get('label')
+        if label is None:
+            label = self._id
+
+        text = Text(label, self.text.content)
         a = {k: v for k, v in a.items() if k != 'width' and k != 'height'}  # FIXME
         return (
                 ret

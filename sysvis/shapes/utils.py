@@ -68,16 +68,16 @@ class Text:
 
     def svg(self, x: float, y: float, attrs: SvgAttrs) -> str:
         label, content = self.label, self.content
-        if label is None:
-            if content is None:
-                return ''
-            else:
-                text = content
-        else:
+        if label:
             if content is None:
                 text = label
             else:
                 text = label + '\\n' + content
+        else:
+            if content is None:
+                return ''
+            else:
+                text = content
         return _text(x, y, text, attrs)
 
 
