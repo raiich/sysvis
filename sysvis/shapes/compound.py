@@ -84,12 +84,12 @@ class Zone(Compound):
         child_nodes: List[Shape] = []
         for c in self.cell_or_groups:
             y += g.top + c.margin.top
-            moved = c.move(x, y)
+            moved = c.move(x + c.margin.left, y)
             if isinstance(moved, Zone) or isinstance(moved, Group):
                 moved = moved.fit()
             child_nodes.append(moved)
             y += moved.height + g.bottom + c.margin.bottom
-            w = max(moved.width, w)
+            w = max(c.margin.left + moved.width + c.margin.right, w)
         y += p.bottom
         x += w + g.right + p.right
         self.width = x - self.x

@@ -246,7 +246,7 @@ class StatementList(object):
 
 class Moment(object):
     def __init__(self, setups: List[Union[ShapeModel, UpdateModel]], attrs: AttributeMap, config='',
-                 padding: str=None, **kwargs):
+                 padding: str=None, margin: str=None, **kwargs):
         def assign(eq: str):
             k, v = eq.split('=')
             return k.strip(), v.strip()
@@ -256,6 +256,7 @@ class Moment(object):
         self.setups = setups
         self.attributes = attrs
         self.shape_attrs = ShapeAttrs(kwargs)
+        self.margin = Gap.parse(margin) if margin else None
         self.padding = Gap.parse(padding) if padding else None
 
     def field(self) -> Field:
@@ -267,7 +268,11 @@ class Moment(object):
             if self.centering and (isinstance(c, ZoneShape) or isinstance(c, GroupShape)):
                 # FIXME
                 c.expand_to(max_width, c.height)
-        field = Field.of(ZoneShape(0, 0, children, padding=self.padding).update(**self.shape_attrs).fit())
+        field = Field.of(
+            ZoneShape(0, 0, children, margins=self.margin, padding=self.padding)
+            .update(**self.shape_attrs)
+            .fit()
+        )
         for edge in self.setups:
             if isinstance(edge, Edge):
                 # FIXME
