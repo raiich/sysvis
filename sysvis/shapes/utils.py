@@ -138,12 +138,10 @@ class Shape:
         return self
 
     def visible(self, is_visible: bool = True) -> 'Shape':
-        # FIXME
-        if self.attrs.get('visibility') is None:
-            if is_visible:
-                self.attrs['visibility'] = 'visible'
-            else:
-                self.attrs['visibility'] = 'hidden'
+        if is_visible:
+            self.attrs['visibility'] = 'visible'
+        else:
+            self.attrs['visibility'] = 'hidden'
         return self
 
 

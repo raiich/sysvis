@@ -122,7 +122,10 @@ class Node(ShapeModel, UpdateModel):
         return self._id
 
     def shape(self, attrs: AttributeMap) -> Shape:
-        a = attrs.shape_attrs(self)
+        a = {
+            **attrs.shape_attrs(self),
+            **self.shape_attrs
+        }
         shape = self._shape or attrs.model_attrs(self).get('shape', 'box')
         w = int(self.width or a.get('width') or 200)  # FIXME
         h = int(self.height or a.get('height') or 150)  # FIXME
@@ -154,8 +157,8 @@ class Node(ShapeModel, UpdateModel):
 
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         shape = base.find(self._id)
-        shape.visible()
         shape.update(self.text, **attrs.shape_attrs(self))
+        shape.visible()
         return base
 
 
