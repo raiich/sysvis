@@ -33,6 +33,7 @@ ZONE : 'zone' ;
 DELETE: 'delete' ;
 
 ID : '\'' (~'\'')* '\'' {self.text = self.text[1:-1]}
+   | '"' (~'"')* '"' {self.text = self.text[1:-1]}
    | [a-zA-Z_0-9\-] [a-zA-Z_0-9.\-]*
    ;
 
