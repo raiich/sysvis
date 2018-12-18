@@ -44,19 +44,24 @@ class Compound(Shape, ABC):
 
 
 class Zone(Compound):
-    def __init__(self, x: float, y: float, cell_or_groups: List[Shape], padding: Gap=None, **kwargs):
+    def __init__(self, x: float, y: float, cell_or_groups: List[Shape], margin: Gap=None, padding: Gap=None, **kwargs):
         p = padding or Gap.zero()
+        m = margin or Gap.zero()
         width = (
+                m.left +
                 p.left +
                 max([c.width + c.margin.left + c.margin.right for c in cell_or_groups])
                 + p.right
+                + m.right
         )
         height = (
+                m.top +
                 p.top +
                 reduce(lambda a, b: a + b.margin.top + b.height + b.margin.bottom, [c for c in cell_or_groups], 0)
                 + p.bottom
+                + m.bottom
         )
-        super().__init__(x, y, width, height, padding=p, **kwargs)
+        super().__init__(x, y, width, height, margin=m, padding=p, **kwargs)
         self.cell_or_groups = cell_or_groups
         self.gap = Gap.gap2(0, 0)
 
@@ -99,19 +104,24 @@ class Zone(Compound):
 
 
 class Group(Compound):
-    def __init__(self, x: float, y: float, cell_or_zones: List[Shape], padding: Gap=None, **kwargs):
+    def __init__(self, x: float, y: float, cell_or_zones: List[Shape], margin: Gap=None, padding: Gap=None, **kwargs):
         p = padding or Gap.zero()
+        m = margin or Gap.zero()
         width = (
+                m.left +
                 p.left +
                 reduce(lambda a, b: a + b.margin.top + b.width + b.margin.bottom, [c for c in cell_or_zones], 0)
                 + p.right
+                + m.right
         )
         height = (
+                m.top +
                 p.top +
                 max([c.height + c.margin.top + c.margin.bottom for c in cell_or_zones])
                 + p.bottom
+                + m.bottom
         )
-        super().__init__(x, y, width, height, padding=p, **kwargs)
+        super().__init__(x, y, width, height, margin=m, padding=p, **kwargs)
         self.cell_or_zones = cell_or_zones
         self.gap = Gap.gap2(0, 0)
 

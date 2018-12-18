@@ -71,9 +71,9 @@ class Group(ShapeModel):
         m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(100.0, 20.0)
         p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
         return (
-            GroupShape(0, 0, children, sid=self._id)
+            GroupShape(0, 0, children, margin=m, padding=p, sid=self._id)
             .update(**a_map.shape_attrs(self))
-            .update(text=self.text, margin=m, padding=p, **self.shape_attrs)
+            .update(text=self.text, **self.shape_attrs)
         )
 
 
@@ -99,9 +99,9 @@ class Zone(ShapeModel):
         m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(20.0, 150.0)
         p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
         return (
-            ZoneShape(0, 0, children, sid=self._id)
+            ZoneShape(0, 0, children, margin=m, padding=p, sid=self._id)
             .update(**a_map.shape_attrs(self))
-            .update(text=self.text, margin=m, padding=p, **self.shape_attrs)
+            .update(text=self.text, **self.shape_attrs)
         )
 
 
@@ -127,7 +127,10 @@ class Node(ShapeModel, UpdateModel):
         w = int(self.width or a.get('width') or 200)  # FIXME
         h = int(self.height or a.get('height') or 150)  # FIXME
 
-        ret = Rect(0, 0, w, h, self._id)
+        m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(20.0, 20.0)
+        p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
+        ret = Rect(0, 0, w, h, self._id, margin=m, padding=p)
+
         if shape == 'box':
             pass
         elif shape == 'cylinder':
@@ -136,9 +139,6 @@ class Node(ShapeModel, UpdateModel):
             ret = Person(0, 0, w, h, self._id)
         else:
             raise NotImplementedError('shape: ' + shape)
-
-        m = self.margin or Gap.parse(a.get('margin')) or Gap.gap2(20.0, 20.0)
-        p = self.padding or Gap.parse(a.get('padding')) or Gap.gap2(20.0, 16.0)
 
         label = self.text.label or attrs.model_attrs(self).get('label')
         if label is None:
@@ -275,7 +275,7 @@ class Moment(object):
         # FIXME
         children = [m.shape(self.attributes) for m in self.setups if isinstance(m, ShapeModel)]
         # FIXME
-        max_width = max(map(lambda cc: cc.width, children))
+        max_width = max(map(lambda cc: _width(cc), children))
         for c in children:
             if self.centering and (isinstance(c, ZoneShape) or isinstance(c, GroupShape)):
                 # FIXME
@@ -331,3 +331,12 @@ class Story(object):
         )
         with open(outfile, 'w') as f:
             f.write(ret)
+
+
+def _width(shape: Shape) -> float:
+    return shape.margin.left + shape.width + shape.margin.right
+
+
+def _height(shape: Shape) -> float:
+    return shape.margin.top + shape.height + shape.margin.bottom
+
