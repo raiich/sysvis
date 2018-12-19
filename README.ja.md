@@ -27,12 +27,19 @@
 # ギャラリー
 下記のような図が作成できます。一部 [rougher.js](https://github.com/signdoubt/rougher) により手書き風にしています。
 
-
+<img src="gallery/b-link-tree-desc.sysvis.0008.svg.r.svg" />
+<img src="gallery/b-link-tree-desc.sysvis.0011.svg.r.svg" />
+<img src="gallery/b-link-tree-desc.sysvis.0012.svg.r.svg" />
+<img src="gallery/distributed-kvs.sysvis.0003.svg.r.svg" />
+<img src="gallery/distributed-kvs.sysvis.0004.svg.r.svg" />
+<img src="gallery/distributed-kvs.sysvis.0007.svg.r.svg" />
+<img src="gallery/oauth2-authorization-code-grant.sysvis.0001.svg.r.svg" />
+<img src="gallery/oauth2-authorization-code-grant.sysvis.0003.svg.r.svg" />
 
 
 # 文法＆機能
 
-`---` で動作図の各フレームを区切ります。最初の `---` が出るまでが初期状態です。文法は `Sysvis.g4` ファイルに記載の通りです。
+文法は `Sysvis.g4` ファイルに記載の通りです。
 
 ## 基本図形
 
@@ -53,6 +60,8 @@ node1 -> storage1;
 <img src="gallery/basic-shapes.sysvis.0000.svg" />
 
 ## 動作図（パラパラ漫画）を出力
+
+`---` で動作図の各フレームを区切ります。最初の `---` が出るまでが初期状態です。
 
 ```
 a;
