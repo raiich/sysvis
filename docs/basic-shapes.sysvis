@@ -1,8 +1,8 @@
 padding='20';
 
 ac1[shape='person', label='Admin A:'];
-nd1[shape='box', label='Node N:', t='[Process P]'];
-st1[shape='cylinder', label='DataStore 1', t='[key1: value1]'];
+nd1[shape='box', label='Node N'];
+st1[shape='cylinder', label='DataStore 1'];
 
 ac1 -> nd1;
 nd1 -> st1;

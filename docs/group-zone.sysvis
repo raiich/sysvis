@@ -1,6 +1,8 @@
 group c1 {
-  me[shape='person', margin='20 240 20 20'];
-  client1;
+  node[margin="70"];
+  me[shape='person'];
+  browser1;
+  tool1;
 };
 group service1 {
   zone az1 {
@@ -13,8 +15,10 @@ group service1 {
   };
 };
 
-me -> client1;
-client1 -> proxy1;
-client1 -> proxy2;
+me -> browser1;
+tool1 -> browser1;
+
+browser1 -> proxy1;
+browser1 -> proxy2;
 proxy1 -> backend1;
 proxy2 -> backend2;
