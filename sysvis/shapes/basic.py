@@ -131,23 +131,30 @@ def _person(x, y, width, height, kwargs):
     return """
     <path
     d="
-    M{xa} {cy}
-    A{rx} {ry} 0 1 0 {xb} {cy}
-    A{rx} {ry} 0 1 0 {xa} {cy}
+    M {cxr},{yum}
+    C {cxr},{yud}
+      {cxl},{yud}
+      {cxl},{yum}
+    M {cxr},{yum}
+    C {cxr},{yuu}
+      {cxl},{yuu}
+      {cxl},{yum}
     M{cx},{y1}
     L{cx},{y3}
-    M{x0},{y2}
-    L{xx},{y2}
+    M{xl},{y2}
+    L{xr},{y2}
     M{cx},{y3}
-    L{x0},{yy}
+    L{xl},{yy}
     M{cx},{y3}
-    L{xx},{yy}
+    L{xr},{yy}
     "
     {style}
     />
     """.format(
-        x0=x, y0=y,
-        xx=xx, yy=yy,
+        cxr=cx - cr, cxl=cx + cr,
+        yuu=y - cr / 3, yum=y + cr, yud=y + 2 * cr + cr / 3,  # FIXME
+        xl=x, y0=y,
+        xr=xx, yy=yy,
         y1=y + cr * 2, y2=y + cr * 3, y3=cr * 4 + y,
         cx=cx, cy=y + cr,
         rx=rx, ry=ry,

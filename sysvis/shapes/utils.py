@@ -146,10 +146,6 @@ class Shape:
 
 
 def _style(kwargs: dict) -> str:
-    kwargs = {
-        'stroke-width': 5,
-        **kwargs
-    }
     return ' '.join(['{k}="{v}"'.format(k=k, v=v) for k, v in kwargs.items()])
 
 

@@ -123,6 +123,7 @@ class Node(ShapeModel, UpdateModel):
 
     def shape(self, attrs: AttributeMap) -> Shape:
         a = {
+            'stroke-width': '3',
             **attrs.shape_attrs(self),
             **self.shape_attrs
         }
@@ -182,13 +183,17 @@ class Edge(UpdateModel):
         return self._id
 
     def update(self, base: Field, attrs: AttributeMap) -> Field:
+        a = {
+            'stroke-width': '2',
+            **attrs.shape_attrs(self)
+        }
         head, tail = base.find(self.head_id).visible(), base.find(self.tail_id).visible()
         arrow = (
             Arrow(tail.cx, tail.cy, head.cx, head.cy, sid=self.id, text=self.text)
             .move(self.dx, self.dy)
             .visible()
             .populate(tail, head)
-            .update(**attrs.shape_attrs(self))
+            .update(**a)
             .update(**self.shape_attrs)
         )
         base.add(arrow)
