@@ -1,12 +1,12 @@
-ずっとほしかったお絵かきツールを自作した
+# ずっと (10年間) ほしかったお絵かきツールが見つからなかったので自作した
 
 # 概要
-システムやアルゴリズムの動作図（パラパラ漫画）を、テキスト記述から生成できるツールを作りました。
+システムやアルゴリズムの動作図（パラパラ漫画）を、DOT（Graphviz）風のテキスト記述から生成できるツールを作りました。
 
 # 特徴
 
 - テキストベースの記述
-	- DOT（Graphviz）風の言語で記述します。1枚絵ではなく、動作をテキストで記述して動作図（パラパラ漫画）を生成します。
+	- DOT（Graphviz）風の言語で記述します。1枚絵ではなく、動作図（パラパラ漫画）をテキスト記述から生成します。
 - SVGへ出力
 
 # 背景
@@ -25,7 +25,9 @@
 そこで自動で図中の各要素の配置を調整して動作図を作成できるツールを開発しました。
 
 # ギャラリー
-下記のような図が作成できます。一部 [rougher.js](https://github.com/signdoubt/rougher) により手書き風にしています。
+
+下記のような図を [docs](docs), [examples](examples) 配下のようなテキスト記述から作成できます（生成方法・コマンドは後述）。
+[rougher.js](https://github.com/signdoubt/rougher) により手書き風にしています。
 
 <img src="gallery/b-link-tree-desc.sysvis.0008.svg.r.svg" />
 
@@ -40,6 +42,37 @@
 ---
 <img src="gallery/oauth2-authorization-code-grant.sysvis.0003.svg.r.svg" />
 
+
+# インストール / 実行
+
+## 依存関係
+
+- Python 3.7
+    - Pipenv
+
+```sh
+$ sudo mkdir /usr/local/Frameworks
+$ sudo chown $(whoami) /usr/local/Frameworks
+$ brew install python
+$ brew unlink python ; brew link python
+$ brew install pipenv
+```
+
+## インストール (Editable install)
+
+```sh
+$ git clone $THIS_REPOSITORY  # $THIS_REPOSITORY: this repository url
+$ cd sysvis
+$ pipenv install -e .
+```
+
+## 実行
+
+```sh
+$ pipenv shell
+$ sysvis -i examples/oauth2-authorization-code-grant.sysvis -o /tmp/oauth2-authorization-code-grant
+$ open /tmp/oauth2-authorization-code-grant*
+```
 
 # 文法＆機能
 
