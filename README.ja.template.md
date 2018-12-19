@@ -28,10 +28,16 @@
 下記のような図が作成できます。一部 [rougher.js](https://github.com/signdoubt/rougher) により手書き風にしています。
 
 <img src="gallery/b-link-tree-desc.sysvis.0008.svg.r.svg" />
+
+---
 <img src="gallery/b-link-tree-desc.sysvis.0011.svg.r.svg" />
 <img src="gallery/distributed-kvs.sysvis.0003.svg.r.svg" />
+
+---
 <img src="gallery/distributed-kvs.sysvis.0007.svg.r.svg" />
 <img src="gallery/oauth2-authorization-code-grant.sysvis.0001.svg.r.svg" />
+
+---
 <img src="gallery/oauth2-authorization-code-grant.sysvis.0003.svg.r.svg" />
 
 
@@ -58,7 +64,11 @@
 ```
 
 <img src="gallery/simple-animation.sysvis.0000.svg" />
+
+---
 <img src="gallery/simple-animation.sysvis.0001.svg" />
+
+---
 <img src="gallery/simple-animation.sysvis.0002.svg" />
 
 ## ラベル / テキスト
@@ -143,7 +153,11 @@ config='mode=diff,align=center';
 ```
 
 <img src="gallery/diff-mode.sysvis.0000.svg" />
+
+---
 <img src="gallery/diff-mode.sysvis.0001.svg" />
+
+---
 <img src="gallery/diff-mode.sysvis.0002.svg" />
 
 初期状態で非表示にすれば、変更があってから表示されるようにできます。
@@ -153,4 +167,6 @@ config='mode=diff,align=center';
 ```
 
 <img src="gallery/array-list.sysvis.0001.svg" />
+
+---
 <img src="gallery/array-list.sysvis.0002.svg" />
