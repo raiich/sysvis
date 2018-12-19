@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="570.0"><g margins="None"><g stroke-width="3">
+    <rect
+    x="20.0"
+    y="20.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3"
+    />
+    
+    <text
+    x="36.0"
+    y="40.0"
+    id="text-7212682917690993951" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text-7212682917690993951" fill="black" stroke-width="1">a</tspan><tspan x="36.0" dy="1em" id="text-7212682917690993951" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="hidden">
+    <rect
+    x="20.0"
+    y="210.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="hidden"
+    />
+    
+    <text
+    x="36.0"
+    y="230.0"
+    id="text-1774450067003654284" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text-1774450067003654284" fill="black" stroke-width="1">b</tspan><tspan x="36.0" dy="1em" id="text-1774450067003654284" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="hidden">
+    <rect
+    x="20.0"
+    y="400.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="hidden"
+    />
+    
+    <text
+    x="36.0"
+    y="420.0"
+    id="text3112479714760708240" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text3112479714760708240" fill="black" stroke-width="1">c</tspan><tspan x="36.0" dy="1em" id="text3112479714760708240" fill="black" stroke-width="1"></tspan></text>
+    </g></g></svg>
+        

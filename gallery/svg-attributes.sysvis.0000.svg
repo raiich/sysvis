@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="240" height="580"><g margins="None"><g stroke-width="3" stroke="#09f" stroke-linecap="round" fill="#8bc" font-size="72" text.stroke="#f6a" text.fill="#f6a" visibility="visible">
+    <rect
+    x="20.0"
+    y="70.0"
+    width="200"
+    height="150"
+    fill="#8bc" stroke="#09f" stroke-width="3" stroke-linecap="round" font-size="72" text.stroke="#f6a" text.fill="#f6a" visibility="visible"
+    />
+    
+    <text
+    x="36.0"
+    y="90.0"
+    stroke="#f6a" fill="#f6a" id="text-7275304658166931178" stroke-width="1"
+    ><tspan x="36.0" dy="1em" stroke="#f6a" fill="#f6a" id="text-7275304658166931178" stroke-width="1">n1</tspan><tspan x="36.0" dy="1em" stroke="#f6a" fill="#f6a" id="text-7275304658166931178" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <rect
+    x="20.0"
+    y="360.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="36.0"
+    y="380.0"
+    id="text8789936419426904482" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text8789936419426904482" fill="black" stroke-width="1">n2</tspan><tspan x="36.0" dy="1em" id="text8789936419426904482" fill="black" stroke-width="1"></tspan></text>
+    </g><g visibility="visible" stroke-width="10" stroke-linecap="round" stroke-dasharray="16 24" opacity="0.5">
+    <path d="
+    M 120.0 220.0
+    L 120.0 360.0
+    M 132.25774349296776 335.94282384691405
+    L 120.0 360.0
+    M 107.74225650703224 335.94282384691405
+    L 120.0 360.0
+    " stroke="black" stroke-width="10" visibility="visible" stroke-linecap="round" stroke-dasharray="16 24" opacity="0.5"></path>
+    </g></g></svg>
+        

@@ -1,8 +1,8 @@
 padding='20';
 
-ac1[shape='person', label='Admin A:'];
-nd1[shape='box', label='Node N'];
-st1[shape='cylinder', label='DataStore 1'];
+actor1[shape='person'];
+node1[shape='box'];
+storage1[shape='cylinder'];
 
-ac1 -> nd1;
-nd1 -> st1;
+actor1 -> node1;
+node1 -> storage1;

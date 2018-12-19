@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="280.0" height="610.0"><g margins="None"><g stroke-width="3" visibility="visible">
+    <path
+    d="
+    M 110.0,70.0
+    C 110.0,110.0
+      170.0,110.0
+      170.0,70.0
+    M 110.0,70.0
+    C 110.0,30.0
+      170.0,30.0
+      170.0,70.0
+    M140.0,100.0
+    L140.0,160.0
+    M90.0,130.0
+    L190.0,130.0
+    M140.0,160.0
+    L90.0,190.0
+    M140.0,160.0
+    L190.0,190.0
+    "
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="140.0"
+    y="8.0"
+    text-anchor="middle" id="text8913009486467438325" fill="black" stroke-width="1"
+    ><tspan x="140.0" dy="1em" text-anchor="middle" id="text8913009486467438325" fill="black" stroke-width="1">actor1</tspan><tspan x="140.0" dy="1em" text-anchor="middle" id="text8913009486467438325" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <rect
+    x="40.0"
+    y="230.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="56.0"
+    y="250.0"
+    id="text130587540076919785" fill="black" stroke-width="1"
+    ><tspan x="56.0" dy="1em" id="text130587540076919785" fill="black" stroke-width="1">node1</tspan><tspan x="56.0" dy="1em" id="text130587540076919785" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <path
+    d="
+    M 240.0,420.0
+    C 240.0,440.0
+      40.0,440.0
+      40.0,420.0
+    M 240.0,420.0
+    C 240.0,400.0
+      40.0,400.0
+      40.0,420.0
+    M 240.0,420.0
+    L 240.0,570.0
+    C 240.0,590.0
+      40.0,590.0
+      40.0,570.0
+    L 40.0,420.0
+    "
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="56.0"
+    y="440.0"
+    id="text-8446112326774012628" fill="black" stroke-width="1"
+    ><tspan x="56.0" dy="1em" id="text-8446112326774012628" fill="black" stroke-width="1">storage1</tspan><tspan x="56.0" dy="1em" id="text-8446112326774012628" fill="black" stroke-width="1"></tspan></text>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 140.0 190.0
+    L 140.0 230.0
+    M 152.25774349296776 205.94282384691405
+    L 140.0 230.0
+    M 127.74225650703224 205.94282384691405
+    L 140.0 230.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 140.0 380.0
+    L 140.0 420.0
+    M 152.25774349296776 395.94282384691405
+    L 140.0 420.0
+    M 127.74225650703224 395.94282384691405
+    L 140.0 420.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g></g></svg>
+        

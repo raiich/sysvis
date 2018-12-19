@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="570.0"><g margins="None"><g stroke-width="3">
+    <rect
+    x="20.0"
+    y="20.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3"
+    />
+    
+    <text
+    x="36.0"
+    y="40.0"
+    id="text-7627530842536438761" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text-7627530842536438761" fill="black" stroke-width="1">node1</tspan><tspan x="36.0" dy="1em" id="text-7627530842536438761" fill="black" stroke-width="1">content here</tspan></text>
+    </g><g stroke-width="3">
+    <path
+    d="
+    M 90.0,240.0
+    C 90.0,280.0
+      150.0,280.0
+      150.0,240.0
+    M 90.0,240.0
+    C 90.0,200.0
+      150.0,200.0
+      150.0,240.0
+    M120.0,270.0
+    L120.0,330.0
+    M70.0,300.0
+    L170.0,300.0
+    M120.0,330.0
+    L70.0,360.0
+    M120.0,330.0
+    L170.0,360.0
+    "
+    fill="none" stroke="black" stroke-width="3"
+    />
+    
+    <text
+    x="120.0"
+    y="178.0"
+    text-anchor="middle" id="text1052012071016974206" fill="black" stroke-width="1"
+    ><tspan x="120.0" dy="1em" text-anchor="middle" id="text1052012071016974206" fill="black" stroke-width="1">This is Admin A</tspan><tspan x="120.0" dy="1em" text-anchor="middle" id="text1052012071016974206" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3">
+    <path
+    d="
+    M 220.0,400.0
+    C 220.0,420.0
+      20.0,420.0
+      20.0,400.0
+    M 220.0,400.0
+    C 220.0,380.0
+      20.0,380.0
+      20.0,400.0
+    M 220.0,400.0
+    L 220.0,550.0
+    C 220.0,570.0
+      20.0,570.0
+      20.0,550.0
+    L 20.0,400.0
+    "
+    fill="none" stroke="black" stroke-width="3"
+    />
+    
+    <text
+    x="36.0"
+    y="420.0"
+    id="text-992151918417113333" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text-992151918417113333" fill="black" stroke-width="1">This is KVS</tspan><tspan x="36.0" dy="1em" id="text-992151918417113333" fill="black" stroke-width="1">[key1: value1]</tspan></text>
+    </g></g></svg>
+        

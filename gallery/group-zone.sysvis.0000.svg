@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1216.0" height="1046.0"><g margins="None"><g ><g stroke-width="3" visibility="visible">
+    <path
+    d="
+    M 176.0,150.0
+    C 176.0,190.0
+      236.0,190.0
+      236.0,150.0
+    M 176.0,150.0
+    C 176.0,110.0
+      236.0,110.0
+      236.0,150.0
+    M206.0,180.0
+    L206.0,240.0
+    M156.0,210.0
+    L256.0,210.0
+    M206.0,240.0
+    L156.0,270.0
+    M206.0,240.0
+    L256.0,270.0
+    "
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="206.0"
+    y="88.0"
+    text-anchor="middle" id="text-2121283090355543780" fill="black" stroke-width="1"
+    ><tspan x="206.0" dy="1em" text-anchor="middle" id="text-2121283090355543780" fill="black" stroke-width="1">me</tspan><tspan x="206.0" dy="1em" text-anchor="middle" id="text-2121283090355543780" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <rect
+    x="446.0"
+    y="120.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="462.0"
+    y="140.0"
+    id="text-4411064162621018253" fill="black" stroke-width="1"
+    ><tspan x="462.0" dy="1em" id="text-4411064162621018253" fill="black" stroke-width="1">browser1</tspan><tspan x="462.0" dy="1em" id="text-4411064162621018253" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <rect
+    x="786.0"
+    y="120.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="802.0"
+    y="140.0"
+    id="text4589313463401590012" fill="black" stroke-width="1"
+    ><tspan x="802.0" dy="1em" id="text4589313463401590012" fill="black" stroke-width="1">tool1</tspan><tspan x="802.0" dy="1em" id="text4589313463401590012" fill="black" stroke-width="1"></tspan></text>
+    </g></g><g ><g ><g stroke-width="3" visibility="visible">
+    <rect
+    x="222.0"
+    y="546.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="238.0"
+    y="566.0"
+    id="text-5408517568001883683" fill="black" stroke-width="1"
+    ><tspan x="238.0" dy="1em" id="text-5408517568001883683" fill="black" stroke-width="1">proxy1</tspan><tspan x="238.0" dy="1em" id="text-5408517568001883683" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <rect
+    x="222.0"
+    y="736.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="238.0"
+    y="756.0"
+    id="text-859314227886436438" fill="black" stroke-width="1"
+    ><tspan x="238.0" dy="1em" id="text-859314227886436438" fill="black" stroke-width="1">backend1</tspan><tspan x="238.0" dy="1em" id="text-859314227886436438" fill="black" stroke-width="1"></tspan></text>
+    </g></g><g ><g stroke-width="3" visibility="visible">
+    <rect
+    x="794.0"
+    y="546.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="810.0"
+    y="566.0"
+    id="text6271052976404241317" fill="black" stroke-width="1"
+    ><tspan x="810.0" dy="1em" id="text6271052976404241317" fill="black" stroke-width="1">proxy2</tspan><tspan x="810.0" dy="1em" id="text6271052976404241317" fill="black" stroke-width="1"></tspan></text>
+    </g><g stroke-width="3" visibility="visible">
+    <rect
+    x="794.0"
+    y="736.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="810.0"
+    y="756.0"
+    id="text-2348791723254087924" fill="black" stroke-width="1"
+    ><tspan x="810.0" dy="1em" id="text-2348791723254087924" fill="black" stroke-width="1">backend2</tspan><tspan x="810.0" dy="1em" id="text-2348791723254087924" fill="black" stroke-width="1"></tspan></text>
+    </g></g></g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 306.0 195.0
+    L 446.0 195.0
+    M 421.94282384691405 182.74225650703224
+    L 446.0 195.0
+    M 421.94282384691405 207.25774349296776
+    L 446.0 195.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 786.0 195.0
+    L 646.0 195.0
+    M 670.057176153086 207.25774349296776
+    L 646.0 195.0
+    M 670.057176153086 182.74225650703224
+    L 646.0 195.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 506.5633802816901 270.0
+    L 361.4366197183099 546.0
+    M 383.4822321896458 530.4118323474605
+    L 361.4366197183099 546.0
+    M 361.7836130646459 519.0022298028597
+    L 361.4366197183099 546.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 607.2676056338028 270.0
+    L 832.7323943661972 546.0
+    M 827.0056996136314 519.6143037383712
+    L 832.7323943661972 546.0
+    M 808.019850962185 535.1238702423695
+    L 832.7323943661972 546.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 322.0 696.0
+    L 322.0 736.0
+    M 334.25774349296773 711.942823846914
+    L 322.0 736.0
+    M 309.74225650703227 711.942823846914
+    L 322.0 736.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 894.0 696.0
+    L 894.0 736.0
+    M 906.2577434929677 711.942823846914
+    L 894.0 736.0
+    M 881.7422565070323 711.942823846914
+    L 894.0 736.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g></g></svg>
+        

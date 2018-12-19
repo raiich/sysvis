@@ -3,7 +3,7 @@ config='mode=diff';
 visibility=hidden;
 
 group array {
-  node[margin=0, padding=10, width=60, height=60];
+  node[margin=0, padding=10, width=60, height=60, label=''];
   c1;
   c2;
   c3;
@@ -14,18 +14,16 @@ group array {
   c8;
 };
 ---
-c1[t='a1234'];
-c2[t='b1235'];
-c3[t='c1236'];
-c4[t='d1237'];
+c1[t='a123'];
+c2[t='b124'];
+c3[t='c125'];
+c4[t='d126'];
 ---
-c5;
+c5[t='e127'];
 c6;
 c7;
 c8;
 ---
-c5[t='e1238'];
+c7[t='f128'];
 ---
-c7[t='f1239'];
----
-c8[t='g1240'];
+c8[t='g129'];
