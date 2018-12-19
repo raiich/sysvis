@@ -29,9 +29,7 @@
 
 <img src="gallery/b-link-tree-desc.sysvis.0008.svg.r.svg" />
 <img src="gallery/b-link-tree-desc.sysvis.0011.svg.r.svg" />
-<img src="gallery/b-link-tree-desc.sysvis.0012.svg.r.svg" />
 <img src="gallery/distributed-kvs.sysvis.0003.svg.r.svg" />
-<img src="gallery/distributed-kvs.sysvis.0004.svg.r.svg" />
 <img src="gallery/distributed-kvs.sysvis.0007.svg.r.svg" />
 <img src="gallery/oauth2-authorization-code-grant.sysvis.0001.svg.r.svg" />
 <img src="gallery/oauth2-authorization-code-grant.sysvis.0003.svg.r.svg" />
@@ -43,7 +41,7 @@
 
 ## 基本図形
 
-基本図形として`box` / `person` / `cylinder`が指定できます。要素にはラベルを指定できます。要素間に矢印を配置できます。
+基本図形として`box` / `person` / `cylinder`が指定できます。要素間に矢印を配置できます。
 
 ```
 padding='20';
