@@ -73,7 +73,7 @@ class Group(ShapeModel):
         return (
             GroupShape(0, 0, children, margin=m, padding=p, sid=self._id)
             .update(**a_map.shape_attrs(self))
-            .update(text=self.text, **self.shape_attrs)
+            .update(margin=m, padding=p, **self.shape_attrs)  # FIXME
         )
 
 
@@ -101,7 +101,7 @@ class Zone(ShapeModel):
         return (
             ZoneShape(0, 0, children, margin=m, padding=p, sid=self._id)
             .update(**a_map.shape_attrs(self))
-            .update(text=self.text, **self.shape_attrs)
+            .update(margin=m, padding=p, **self.shape_attrs)  # FIXME
         )
 
 
@@ -153,12 +153,14 @@ class Node(ShapeModel, UpdateModel):
         return (
                 ret
                 .update(**a)
-                .update(text=text, margin=m, padding=p, **self.shape_attrs)
+                .update(text=text, margin=m, padding=p, **self.shape_attrs)  # FIXME
         )
 
     def update(self, base: Field, attrs: AttributeMap) -> Field:
         shape = base.find(self._id)
-        shape.update(self.text, **attrs.shape_attrs(self))
+        keywords = ['margin', 'padding', 'width', 'height']
+        ats = {k: v for k, v in attrs.shape_attrs(self).items() if k not in keywords}
+        shape.update(self.text, **ats).update(**self.shape_attrs)
         shape.visible()
         return base
 
@@ -289,7 +291,7 @@ class Moment(object):
                 # FIXME
                 c.expand_to(max_width, c.height)
         field = Field.of(
-            ZoneShape(0, 0, children, margins=self.margin, padding=self.padding)
+            ZoneShape(0, 0, children, margin=self.margin, padding=self.padding)
             .update(**self.shape_attrs)
             .fit()
         )
