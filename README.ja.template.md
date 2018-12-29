@@ -203,3 +203,19 @@ config='mode=diff,align=center';
 
 ---
 <img src="gallery/array-list.sysvis.0002.svg" />
+
+## 表示済み要素の非表示
+
+表示済み要素を非表示にするには下記のようにします。
+
+```
+{delete.sysvis}
+```
+
+<img src="gallery/delete.sysvis.0000.svg" />
+
+---
+<img src="gallery/delete.sysvis.0001.svg" />
+
+---
+<img src="gallery/delete.sysvis.0002.svg" />

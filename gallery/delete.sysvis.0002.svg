@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="380.0"><g ><g stroke-width="3" visibility="visible">
+    <rect
+    x="20.0"
+    y="20.0"
+    width="200"
+    height="150"
+    fill="none" stroke="black" stroke-width="3" visibility="visible"
+    />
+    
+    <text
+    x="36.0"
+    y="40.0"
+    id="text3465140246779488059" fill="black" stroke-width="1"
+    ><tspan x="36.0" dy="1em" id="text3465140246779488059" fill="black" stroke-width="1">a</tspan><tspan x="36.0" dy="1em" id="text3465140246779488059" fill="black" stroke-width="1"></tspan></text>
+    </g><g visibility="visible" stroke-width="2">
+    <path d="
+    M 120.0 170.0
+    L 120.0 210.0
+    M 132.25774349296776 185.94282384691405
+    L 120.0 210.0
+    M 107.74225650703224 185.94282384691405
+    L 120.0 210.0
+    " stroke="black" stroke-width="2" visibility="visible"></path>
+    </g></g></svg>
+        
